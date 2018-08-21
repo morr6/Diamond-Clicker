@@ -1,0 +1,12 @@
+@font-face{
+  font-family:SilkscreenNormal;
+  src:url('./assets/fonts/Minecrafter.Alt.ttf');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: SilkscreenNormal;
+  background: url('https://pre00.deviantart.net/5e8e/th/pre/f/2013/269/8/5/_1080p__minecraft_grass_wallpaper_by_iwithered-d6o2yv5.png') center center fixed;
+  background-size: 100% 100%;
+}
