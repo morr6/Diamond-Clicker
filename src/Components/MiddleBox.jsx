@@ -32,7 +32,7 @@ export default class MiddleBox extends Component {
               <DiamondImage src={ require( '../assets/images/Diamond.png' ) } 
                 onClick={ () => this.props.diamondDig } />
 
-            </MainContainer>
+            </MainContainer> 
         )
     }
 }
