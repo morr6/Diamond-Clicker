@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import VisibleMiddleBox from './Components/MiddleBox';
-import ExpBarContainer from './Components/ExpBar'
+import { VisibleMiddleBox } from './Components/MiddleBox';
+import { VisibleExpBarContainer} from './Components/ExpBarContainer';
+import { VisibleRightBox } from './Components/RightBox';
+import { VisibleLeftBox } from './Components/LeftBox'
 
 class App extends Component {
-  render() {
+  render() {  
     return (
       <div>
-        <div style={{ width: '33.3%',height:'100vh',float:'left' }}>
-        
-        </div>
+        <VisibleLeftBox />
 
-        <VisibleMiddleBox>
-        </VisibleMiddleBox>
+        <VisibleMiddleBox />
 
-        <div style={{ 
-          width: '33.3%',height:'100vh',float:'left' }}>
-        </div>
+        <VisibleRightBox />  
 
-        <ExpBarContainer>
-        </ExpBarContainer>
+        <VisibleExpBarContainer />
 
       </div>
     );
