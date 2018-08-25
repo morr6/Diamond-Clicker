@@ -8,7 +8,7 @@ import {
 } from '../actions/clickerActions'
 import { PAY } from '../actions/shopActions';
 
-import { achievementList } from '../../achievementList';
+import { achievementList } from '../achievementList';
 
 export const numberOfDiamonds = (state = 0, action) => {
     switch ( action.type ) {
@@ -28,10 +28,9 @@ export const level = (state = { level: 1, diamondsNeededToLvlUp: 10, expGained: 
         case INCREASE_DIAMOND_NEEDED: 
             return { ...state, diamondsNeededToLvlUp: state.diamondsNeededToLvlUp * 2 }
         case INCREASE_EXP_NEEDED:
-            return { ...state, expGained: state.level === 1 ? 
-                state.expGained + 1 : state.expGained + action.expGained }
+            return { ...state, expGained: state.expGained + action.expGained }
         case RESET_EXP_GAINED:
-            return { ...state, expGained: 2 }
+            return { ...state, expGained: state.expGained - state.diamondsNeededToLvlUp }
         default: 
             return state
     }

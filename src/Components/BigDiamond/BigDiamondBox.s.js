@@ -16,7 +16,7 @@ export const MainContainer = glamorous.div(props => {
 
 export const DiamondsNumber = glamorous.div(props => {
     return {
-        marginTop: '30%',
+        marginTop: '35%',
         fontSize: '70',
         color: 'white'
     }

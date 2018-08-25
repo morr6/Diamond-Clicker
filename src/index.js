@@ -6,7 +6,6 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware} from 'redux'
 import { rootReducer } from './clicker_api/reducers/rootReducer'
-import { achievementList } from './achievementList.js';
 import { UNLOCK_ACHIEVEMENT } from './clicker_api/actions/clickerActions';
 
 const achievementUnlockerMiddleware = store => next => action => {

@@ -7,14 +7,14 @@ import {BottomBar,
         ItemImage,
         ItemWrapper,
         ItemAmount
-    } from '../Components_Styles/ExpBarContainer.s';
+    } from './BottomBarContainer.s';
 
 import { connect } from 'react-redux'
-import { diamondDig, levelUp } from '../clicker_api/actions/clickerActions'
+import { diamondDig, levelUp } from '../../clicker_api/actions/clickerActions'
 
-import * as ExpBarImg from '../assets/images/bottomBar/ExpBar.png';
+import * as ExpBarImg from '../../assets/images/bottomBar/ExpBar.png';
 
-export default class ExpBarContainer extends Component {
+export default class PureExpBar extends Component {
     constructor() {
         super();
 
@@ -28,14 +28,14 @@ export default class ExpBarContainer extends Component {
     }
 
     getItemImage(name) {
-        return require('../assets/images/bottomBar/'+name+'.png')
+        return require('../../assets/images/bottomBar/'+name+'.png')
     }
 
     render() {
         return (
           <BottomBar>
 
-            <LevelPoints diamonds={ this.props.expGained / this.props.diamondsNeededToLvlUp } />
+            <LevelPoints expGained={ this.props.expGained / this.props.diamondsNeededToLvlUp } />
             <Level> { this.props.level } </Level>
             <ExpBarImage src={ ExpBarImg } />
             <InventoryBar>
@@ -74,7 +74,7 @@ const mapDispatchToProps = dispatch => ({
     levelUp: level => dispatch(levelUp(level))
 });
 
-export const VisibleExpBarContainer = connect(
+export const ExpBar = connect(
     mapStateToProps,
     mapDispatchToProps
-  )(ExpBarContainer)
+  )(PureExpBar)

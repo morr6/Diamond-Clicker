@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
-import { VisibleMiddleBox } from './Components/MiddleBox';
-import { VisibleExpBarContainer} from './Components/ExpBarContainer';
-import { VisibleRightBox } from './Components/RightBox';
-import { VisibleLeftBox } from './Components/LeftBox'
+import { BigDiamondBox } from './Components/BigDiamond/BigDiamondBox';
+import { ExpBar} from './Components/BottomBar/BottomBarContainer';
+import { ShopBox } from './Components/Shop/ShopBox';
+import { AchievementsBox } from './Components/Achievements/AchievementsBox'
+
 
 class App extends Component {
   render() {  
     return (
       <div>
-        <VisibleLeftBox />
+        <AchievementsBox />
 
-        <VisibleMiddleBox />
+        <BigDiamondBox />
 
-        <VisibleRightBox />  
+        <ShopBox />  
 
-        <VisibleExpBarContainer />
+        <ExpBar />
 
       </div>
     );

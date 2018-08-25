@@ -1,5 +1,5 @@
 import glamorous from 'glamorous';
-import InventoryBarImg from '../assets/images/bottomBar/inventoryBar.png'
+import InventoryBarImg from '../../assets/images/bottomBar/inventoryBar.png'
 
 export const BottomBar = glamorous.div(props => {
     return {
@@ -34,7 +34,8 @@ export const LevelPoints = glamorous.div(props => {
         top: '43.8px', left:'0.375%',
         background: 'rgba(130,210,105,.4)',
         height: '17.9px',
-        width: props.diamonds * 100 + '%',
+        width: props.expGained * 100 + '%',
+        maxWidth: '100%'
     }
 })
 export const InventoryBar = glamorous.div(props => {

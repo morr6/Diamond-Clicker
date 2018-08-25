@@ -4,13 +4,13 @@ import {BUY_ITEM,
     } from "../actions/shopActions";
 
 const shopItems = [ 
-    { name: 'hand', amount: 0, cost: 10, lvlNeeded: 1, diamondsPerSecond: 1}, 
-    { name: 'stick', amount: 0, cost: 30, lvlNeeded: 1, diamondsPerSecond: 122}, 
-    { name: 'woodenPick', amount: 0, cost: 1, lvlNeeded: 3, diamondsPerSecond: 3},
-    { name: 'stonePick', amount: 0, cost: 100, lvlNeeded: 4, diamondsPerSecond: 4}, 
-    { name: 'ironPick', amount: 0, cost: 150, lvlNeeded: 5, diamondsPerSecond: 5}, 
-    { name: 'goldenPick', amount: 0, cost: 250, lvlNeeded: 6, diamondsPerSecond: 6},
-    { name: 'diamondPick', amount: 0, cost: 350, lvlNeeded: 7, diamondsPerSecond: 7}, 
+    { name: 'hand', amount: 0, cost: 101, lvlNeeded: 1, diamondsPerSecond: 1}, 
+    { name: 'stick', amount: 0, cost: 1, lvlNeeded: 2, diamondsPerSecond: 50}, 
+    { name: 'wooden Pick', amount: 0, cost: 1, lvlNeeded: 3, diamondsPerSecond: 3},
+    { name: 'stone Pick', amount: 0, cost: 100, lvlNeeded: 4, diamondsPerSecond: 4}, 
+    { name: 'iron Pick', amount: 0, cost: 150, lvlNeeded: 5, diamondsPerSecond: 5}, 
+    { name: 'golden Pick', amount: 0, cost: 250, lvlNeeded: 6, diamondsPerSecond: 6},
+    { name: 'diamond Pick', amount: 0, cost: 350, lvlNeeded: 7, diamondsPerSecond: 7}, 
     { name: 'tnt', amount: 0, cost: 500, lvlNeeded: 8, diamondsPerSecond: 8}, 
     { name: 'creeper', amount: 0, cost: 1000, lvlNeeded: 9, diamondsPerSecond: 9},
 ];
@@ -39,7 +39,7 @@ export const itemToShake = ( state = '', action ) => {
     }
 }
 
-export const diamondsPerSecond = ( state = 1, action ) => {
+export const diamondsPerSecond = ( state = 0, action ) => {
     switch ( action.type ) {
         case INCREASE_DIAMONDS_PER_SECOND:
             return state + action.increaseAmount

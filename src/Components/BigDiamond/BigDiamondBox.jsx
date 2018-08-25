@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {DiamondsNumber,
         MainContainer ,
         DiamondImage,
-} from '../Components_Styles/MiddleBox.s.js';
-import * as BigDiamond from '../assets/images/Diamond.png'
+} from './BigDiamondBox.s';
+import * as BigDiamondImage from '../../assets/images/Diamond.png'
 
 import { connect } from 'react-redux'
 import {diamondDig, 
@@ -11,10 +11,9 @@ import {diamondDig,
         increaseDiamondNeeded, 
         increaseExpGained, 
         resetExpGained,
-        digPerSecond
-} from '../clicker_api/actions/clickerActions'
+} from '../../clicker_api/actions/clickerActions'
 
-export default class MiddleBox extends Component {   
+export default class PureBigDiamond extends Component {   
 
     componentDidMount() {
         this.interval = setInterval(() => {
@@ -23,8 +22,8 @@ export default class MiddleBox extends Component {
 
             if (this.props.expGained >= this.props.diamondsNeededToLvlUp) {
                 this.props.levelUp()
-                this.props.increaseDiamondNeeded()
                 this.props.resetExpGained()
+                this.props.increaseDiamondNeeded()
             }
         }, 1000);
       } 
@@ -36,12 +35,12 @@ export default class MiddleBox extends Component {
     onBlockClick() {
       
         this.props.diamondDig(1)   
-        this.props.increaseExpGained(2)
+        this.props.increaseExpGained( this.props.level === 1 ? 1 : 2)
 
         if (this.props.expGained === this.props.diamondsNeededToLvlUp) {
             this.props.levelUp()
+            this.props.resetExpGained()
             this.props.increaseDiamondNeeded()
-            this.props.resetExpGained() 
         }
 
     }
@@ -54,7 +53,7 @@ export default class MiddleBox extends Component {
                 Diamonds { this.props.numberOfDiamonds } 
               </DiamondsNumber> 
               <div style={{color:'white'}}> Diamonds per second: { this.props.diamondsPerSecond } </div>
-              <DiamondImage src={ BigDiamond } 
+              <DiamondImage src={ BigDiamondImage } 
                 onClick={ () => this.onBlockClick() } />
 
             </MainContainer> 
@@ -79,7 +78,7 @@ const mapDispatchToProps = dispatch => ({
     resetExpGained: resetExp => dispatch(resetExpGained(resetExp)),
 });
 
-export const VisibleMiddleBox = connect(
+export const BigDiamondBox   = connect(
     mapStateToProps,
     mapDispatchToProps
-  )(MiddleBox)
+  )(PureBigDiamond)

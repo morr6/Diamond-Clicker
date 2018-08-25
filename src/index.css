@@ -8,10 +8,12 @@
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   padding: 0;
   font-family: SilkscreenNormal;
-  background: url('https://images7.alphacoders.com/589/589234.jpg') center center fixed;
+  /* https://images7.alphacoders.com/589/589234.jpg */
+  background: url('./assets//images/diamondsBg.png') center center fixed;
   background-size: 100% 100%;
 }
 

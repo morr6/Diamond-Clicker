@@ -1,8 +1,8 @@
 import glamorous from 'glamorous';
-import BackgroundUrl from '../assets/images/achievements/achievement.jpg';
-import ButtonBackgroudnd from '../assets/images/buttons/btn1.png';
-import HoveredButtonBackground from '../assets/images/buttons/btn2.png';
-import achievementImg from '../assets/images/achievements/lockedAchievement.png'
+import BackgroundUrl from '../../assets/images/achievements/achievement.jpg';
+import ButtonBackgroudnd from '../../assets/images/buttons/btn1.png';
+import HoveredButtonBackground from '../../assets/images/buttons/btn2.png';
+import achievementImg from '../../assets/images/achievements/lockedAchievement.png'
 
 const mediaQueries = {
     buttonFont: '@media only screen and (max-width: 1250px)',
@@ -91,7 +91,7 @@ export const AchievementsWrapper = glamorous.div(props => {
     }
 })
 
-export const AchievementBox = glamorous.div(props => {
+export const SingleAchievement = glamorous.div(props => {
     return {    
         color: 'black   ',
         height: '54px', width:'54px',

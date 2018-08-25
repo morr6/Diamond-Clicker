@@ -4,14 +4,14 @@ import {MainContainer,
         CloseAchievementsButton,
         AchievementTitleWrapper,
         AchievementsWrapper,
-        AchievementBox,
+        SingleAchievement,
         OpenAchievementsButton        
-} from '../Components_Styles/LeftBox.s'
+} from './AchievementsBox.s'
 
 
 import { connect } from 'react-redux'
 
-export default class LeftBox extends Component {
+export default class PureAchievementsBox extends Component {
     constructor(props) {
         super(props);
 
@@ -48,9 +48,9 @@ export default class LeftBox extends Component {
 
                     <AchievementsWrapper>
                         { this.props.achievements.map((achievement, key) => 
-                            <AchievementBox key={key} achievement={achievement}>
+                            <SingleAchievement key={key} achievement={achievement}>
                                 { achievement.id }
-                            </AchievementBox>
+                            </SingleAchievement>
                         )}
                     </AchievementsWrapper>
 
@@ -69,7 +69,7 @@ const mapDispatchToProps = dispatch => ({
 
 })
 
-export const VisibleLeftBox = connect(
+export const AchievementsBox = connect(
     mapStateToProps,
     mapDispatchToProps
-)(LeftBox)
+)(PureAchievementsBox)
