@@ -20,7 +20,7 @@ export const DiamondsNumber = glamorous.div(props => {
     return {
         transition:'.5s',
         marginTop: '35%',
-        fontSize: 70,
+        fontSize: 60,
         color: 'white',
 
         '@media(max-width: 1150px)': {

@@ -5,8 +5,11 @@ import {MainContainer,
         AchievementTitleWrapper,
         AchievementsWrapper,
         OpenAchievementsButton,
+        LastAchievementBox,
+        LastAchievementNameWrapper
 } from './AchievementsBox.s'
 import {SingleAchievement} from './SingleAchievement'
+import {hideAchievementUnlocked} from '../../clickerApi/actions/clickerActions'
 
 import { connect } from 'react-redux'
 
@@ -27,9 +30,24 @@ export default class PureAchievementsBox extends Component {
         this.setState({ isAchievementsOpen: true })
     }
 
+    renderLastAchievementUnlocked() {
+        if (this.props.lastAchievementUnlocked.name) {
+            return <LastAchievementBox>
+                <LastAchievementNameWrapper>  
+                    { this.props.lastAchievementUnlocked.name } 
+                </LastAchievementNameWrapper>
+            </LastAchievementBox>
+        }
+    }
+
     render() {
         return(
-            <MainContainer>                
+            <MainContainer> 
+                
+                { this.renderLastAchievementUnlocked() }
+                { this.props.lastAchievementUnlocked.name && 
+                    setTimeout( () => {this.props.hideAchievementUnlocked()}, 5000)  }
+
                 <OpenAchievementsButton isAchievementsOpen={ this.state.isAchievementsOpen }
                     onClick={ () => this.openAchievementsButton() }>
                     ACHIEVEMENTS
@@ -61,9 +79,14 @@ export default class PureAchievementsBox extends Component {
 }
 
 const mapStateToProps = state => ({
-    achievements: state.achievements
+    achievements: state.achievements,
+    lastAchievementUnlocked: state.lastAchievementUnlocked
+})
+const mapDispatchToProps = dispatch => ({
+    hideAchievementUnlocked: achievementUnlocked => dispatch(hideAchievementUnlocked(achievementUnlocked))
 })
 
 export const AchievementsBox = connect(
     mapStateToProps,
+    mapDispatchToProps 
 )(PureAchievementsBox)

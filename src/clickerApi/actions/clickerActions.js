@@ -4,6 +4,7 @@ export const INCREASE_DIAMOND_NEEDED = 'INCREASE_DIAMOND_NEEDED';
 export const INCREASE_EXP_NEEDED = 'INCREASE_EXP_NEEDED';
 export const RESET_EXP_GAINED = 'RESET_EXP_GAINED';
 export const UNLOCK_ACHIEVEMENT = 'UNLOCK_ACHIEVEMENT';
+export const HIDE_ACHIEVEMENT_UNLOCKED = 'HIDE_ACHIEVEMENT_UNLOCKED';
 
 export const diamondDig = diamonds => ({
     type: ON_DIAMOND_CLICK,
@@ -28,4 +29,9 @@ export const increaseExpGained = expGained => ({
 export const resetExpGained = resetExp => ({ 
     type: RESET_EXP_GAINED, 
     resetExp
+})
+
+export const hideAchievementUnlocked = achievementUnlocked => ({
+    type: HIDE_ACHIEVEMENT_UNLOCKED,
+    achievementUnlocked
 })

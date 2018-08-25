@@ -2,7 +2,7 @@ import glamorous from 'glamorous';
 import BackgroundUrl from '../../assets/images/achievements/achievement.jpg';
 import ButtonBackgroudnd from '../../assets/images/buttons/btn1.png';
 import HoveredButtonBackground from '../../assets/images/buttons/btn2.png';
-import achievementImg from '../../assets/images/achievements/lockedAchievement.png'
+import LastAchievementImage from '../../assets/images/achievements/achievementGet.png'
 
 export const MainContainer = glamorous.div(props => {
     return {
@@ -84,5 +84,36 @@ export const AchievementsWrapper = glamorous.div(props => {
     return {
         margin: '5% 0 0 7.5%',
         height:'66%', width:'85%',
+    }
+})
+
+export const LastAchievementBox = glamorous.div(prosp => {
+    return {
+        position: 'absolute',
+        top: '10%',
+        left: '2%',
+        height: '12.5%',
+        width:'35%',
+        background:'url('+ LastAchievementImage +')',
+        backgroundSize: '100% 100%'
+    }
+})
+
+export const LastAchievementNameWrapper = glamorous.div(props => {
+    return {
+        transition: '.5s',
+        position:'relative',
+        top: '55%',
+        left: '14.5%',
+        color: 'white',
+        fontSize: 40,
+        fontFamily: 'Minecraft',
+
+        '@media(max-width:1650px)': {
+          fontSize: 30
+        },
+        '@media(max-width:1250px)': {
+            fontSize: 20
+        }
     }
 })

@@ -6,7 +6,10 @@ export const Achievement = glamorous.div(props => {
     return {    
         color: 'black',
         height: '54px', width:'54px',
-        background: props.achievement.unlocked ? '#55aa11' : 'url('+ achievementImg +')',
+        background: props.achievement.unlocked ? 
+            'url('+ require('../../assets/images/achievements/achievementIcons/'+ props.achievementId +'.png') +')' : 
+            'url('+ achievementImg +')',
+        backgroundSize: '100% 100%',
         float:'left',
         cursor: 'pointer',
 
@@ -17,7 +20,6 @@ export const Achievement = glamorous.div(props => {
         }
     }
 })
-
 export const AchievementInfo = glamorous.div(props => {
     return {
         textAlign:'center',

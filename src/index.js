@@ -23,9 +23,12 @@ const achievementUnlockerMiddleware = store => next => action => {
     achievement.shouldBeUnlcoked(store.getState()) &&
     store.dispatch({
       type: UNLOCK_ACHIEVEMENT,
-      achievementId: achievement.id
-    })
-
+      achievementId: achievement.id,  
+    }) && 
+    store.dispatch({
+      type: 'SET_UNLOCKED_ACHIEVEMENT',
+      achievement: achievement
+    })   
   )
 }
 

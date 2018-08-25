@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { numberOfDiamonds, level, achievements} from './clickerReducers';
+import { numberOfDiamonds } from './clickerReducers';
 import { items, itemToShake, diamondsPerSecond } from '../reducers/shopReducers'
+import { level } from './levelReducer';
+import { achievements, lastAchievementUnlocked } from './achievementsReducer'
 
 export const rootReducer = combineReducers({
     numberOfDiamonds,
@@ -8,5 +10,6 @@ export const rootReducer = combineReducers({
     achievements,
     items,
     itemToShake,
-    diamondsPerSecond
+    diamondsPerSecond,
+    lastAchievementUnlocked
 })

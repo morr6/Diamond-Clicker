@@ -26,6 +26,7 @@ export class SingleAchievement extends Component {
         return (
           <div>
             <Achievement
+                achievementId={ this.props.achievement.id }
                 onMouseMove={ (event) => this.setMousePosition(event) } 
                 achievement={ this.props.achievement }
                 onMouseOver={ () => this.onAchievementOver() }
