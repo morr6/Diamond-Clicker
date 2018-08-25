@@ -15,9 +15,16 @@ export const MainContainer = glamorous.div(props => {
     return { 
         height:'22.5%',
         width:'23%',
-        margin: '8% 2% 10% 5%',
+        margin: '8.5% 2% 10% 5%',
         fontSize: 25,
-        float:'left'
+        float:'left',
+
+        '@media(max-width: 1400px)': {
+            marginTop: '15%'
+        },
+        '@media(max-width: 900px)': {
+            marginTop: '25%'
+        }
     }
 })
 
@@ -47,9 +54,8 @@ export const ItemImage = glamorous.img(props => {
 
 export const MiniDiamond = glamorous.img(props => {
     return {
-        height: '30px', width:'30px',
-        position:'relative',
-        top: 6  
+        height: '100%', width:'25px',
+        float:'right'
     }
 })
 
@@ -68,7 +74,7 @@ export const ItemInfo = glamorous.div(props => {
         position: 'absolute',
         zIndex: 9999,
         top: props.clientY ? props.clientY - 90: 0,
-        left: props.clientX ? props.clientX - 450 : 0        
+        left: props.clientX ? props.clientX - 425 : 0        
     }
 })
 

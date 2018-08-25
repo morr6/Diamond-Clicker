@@ -10,7 +10,7 @@ import {BottomBar,
     } from './BottomBarContainer.s';
 
 import { connect } from 'react-redux'
-import { diamondDig, levelUp } from '../../clicker_api/actions/clickerActions'
+import { diamondDig, levelUp } from '../../clickerApi/actions/clickerActions'
 
 import * as ExpBarImg from '../../assets/images/bottomBar/ExpBar.png';
 

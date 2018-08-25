@@ -5,8 +5,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware} from 'redux'
-import { rootReducer } from './clicker_api/reducers/rootReducer'
-import { UNLOCK_ACHIEVEMENT } from './clicker_api/actions/clickerActions';
+import { rootReducer } from './clickerApi/reducers/rootReducer'
+import { UNLOCK_ACHIEVEMENT } from './clickerApi/actions/clickerActions';
 
 const achievementUnlockerMiddleware = store => next => action => {
   if (action.type === UNLOCK_ACHIEVEMENT) {
@@ -14,6 +14,7 @@ const achievementUnlockerMiddleware = store => next => action => {
   }
 
   next(action);
+
   const achievements = store.getState().achievements
   achievements && achievements.map(
     achievement =>

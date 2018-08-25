@@ -4,12 +4,6 @@ import ButtonBackgroudnd from '../../assets/images/buttons/btn1.png';
 import HoveredButtonBackground from '../../assets/images/buttons/btn2.png';
 import achievementImg from '../../assets/images/achievements/lockedAchievement.png'
 
-const mediaQueries = {
-    buttonFont: '@media only screen and (max-width: 1250px)',
-    achievementsOverflow: '@media only screen and (max-width: 1900px)'
-}
-
-
 export const MainContainer = glamorous.div(props => {
     return {
         width: '33.3%',height:'100vh',
@@ -20,7 +14,7 @@ export const MainContainer = glamorous.div(props => {
 export const OpenAchievementsButton = glamorous.button(props => {
     return {
         transition: '.3s',   
-        opacity: props.isAchievementsOpen === true ? '0' : '1',
+        display: props.isAchievementsOpen ? 'none' : 'block',
         fontSize: '40',
         margin: '3% 0 0 10%',
         width: '80%', height: '7%',
@@ -35,22 +29,24 @@ export const OpenAchievementsButton = glamorous.button(props => {
             cursor: 'pointer'
         },
 
-        [mediaQueries.buttonFont]: {
-            fontSize: '20'
+        '@media(max-width: 1250px)': {
+            fontSize: 20
+        },
+        '@media(max-width: 650px)': {
+            fontSize: 15
         }
     }
 })
 
 export const AchievementsContainer = glamorous.div(props => {
     return {
-        transition: '.3s',   
-        opacity: props.isOpen === true ? '1' : '0',
-        margin: '20% 0 0 10%',
+        transition: '.3s',
+        margin: '35% 0 0 10%',
         width: '80%', height:'50%',
         background: 'url('+ BackgroundUrl +')',
         backgroundSize: '100% 100%',
 
-        [mediaQueries.achievementsOverflow]: {
+        '@media(max-width: 1900px)': {
             overflowY:'scroll',
             overflowX: 'hidden'
         }
@@ -88,21 +84,5 @@ export const AchievementsWrapper = glamorous.div(props => {
     return {
         margin: '5% 0 0 7.5%',
         height:'66%', width:'85%',
-    }
-})
-
-export const SingleAchievement = glamorous.div(props => {
-    return {    
-        color: 'black   ',
-        height: '54px', width:'54px',
-        background: props.achievement.unlocked ? '#55aa11' : 'url('+ achievementImg +')',
-        float:'left',
-        cursor: 'pointer',
-
-        ':hover': {
-            transition: '.5s',
-            transform: 'scale(1.1)',
-            overflow: 'hidden'
-        }
     }
 })

@@ -18,6 +18,7 @@ export const ShopContainer = glamorous.div(props => {
         backgroundSize: '100% 100%',
         height: '80%', width:'95%',
         margin: '3% 0 0 1%',
+
     }
 })
 
@@ -32,9 +33,8 @@ export const SingleItemWrapper = glamorous.div(props => {
     return {
         height:'22.5%',
         width:'23%',
-        margin: '8% 2% 10% 5%',
         fontSize: 25,
-        float:'l    eft'
+        float:'left'
     }
 })
  

@@ -9,7 +9,12 @@ import {
 import { connect } from 'react-redux'
 import * as ClosedShop from '../../assets/images/shop/closedShop.png';
 import * as MiniDiamondImage from '../../assets/images/shop/Diamond.png';
-import { buyItem, pay, shakeCost, increaseDiamondsPerSecond } from '../../clicker_api/actions/shopActions'
+import { buyItem, pay, shakeCost, increaseDiamondsPerSecond } from '../../clickerApi/actions/shopActions'
+
+const   itemInfoTextStyle = {
+    fontSize: 15, 
+    marginTop:'2%'
+}
 
 export class ShopItemPure extends Component {
     constructor(props) {
@@ -31,15 +36,23 @@ export class ShopItemPure extends Component {
 
     showItemCost(item) {
         if (item.lvlNeeded <= this.props.level) {
-            return  <div> - {item.cost} <MiniDiamond src={ MiniDiamondImage } /> </div>
+            return  <div> {item.cost + item.amount * item.cost * item.increaseCostValue } 
+                <MiniDiamond src={ MiniDiamondImage } /> 
+            </div>
         }
         else { 
-            return <span style={{color:'white'}}> { item.lvlNeeded + ' lvl' } </span> 
+            return <div style={{color:'white'}}> { item.lvlNeeded + ' lvl' } </div> 
         }
     }
     
+    afford() {
+        return this.props.item.cost + this.props.item.amount * 
+            this.props.item.cost * this.props.item.increaseCostValue <= this.props.numberOfDiamonds
+    }
+
     buyItem(item) {
-        if (item.cost <= this.props.numberOfDiamonds && item.lvlNeeded <= this.props.level ) {
+        if (item.cost + item.amount * item.cost * item.increaseCostValue <= this.props.numberOfDiamonds && 
+                item.lvlNeeded <= this.props.level ) {
             this.props.buyItem(item)
             this.props.pay(item)
             this.props.increaseDiamondsPerSecond(item.diamondsPerSecond)
@@ -70,9 +83,10 @@ export class ShopItemPure extends Component {
                 onMouseMove={ (event) => this.setMousePosition(event) }
             >
                  
-                <CostWrapper afford={ this.props.item.cost <= this.props.numberOfDiamonds }
+                <CostWrapper 
+                    afford={ this.afford() }
                     animate={ this.props.itemToShake === this.props.item.name }> 
-                    { this.showItemCost(this.props.item) }    
+                        { this.showItemCost(this.props.item) }    
                 </CostWrapper>
 
                 <ItemImage src={ this.setItemImage() }                             
@@ -86,9 +100,14 @@ export class ShopItemPure extends Component {
                         clientX={ this.state.mousePosition.x }
                     >
                         { this.props.item.name }
-                        <div style={{fontSize: 15, marginTop:'2%'}}>
-                            Diamonds per second: 
-                            { this.props.item.diamondsPerSecond }
+                        <div style={itemInfoTextStyle}>
+                            { this.props.item.name === 'hand' ? 
+                                <div> each give you <span style={{fontSize:'25px'}}> { this.props.item.diamondsPerClick } </span> diamonds per click </div> :
+                                <div> each give you <span style={{fontSize:'25px'}}> { this.props.item.diamondsPerSecond } </span> Diamonds per second:  </div>                                
+                            }
+                        </div>
+                        <div style={itemInfoTextStyle}>
+                            Owned: { this.props.item.amount }
                         </div>
                     </ItemInfo>
                 }

@@ -11,7 +11,7 @@ import {diamondDig,
         increaseDiamondNeeded, 
         increaseExpGained, 
         resetExpGained,
-} from '../../clicker_api/actions/clickerActions'
+} from '../../clickerApi/actions/clickerActions'
 
 export default class PureBigDiamond extends Component {   
 
@@ -34,8 +34,12 @@ export default class PureBigDiamond extends Component {
 
     onBlockClick() {
       
-        this.props.diamondDig(1)   
-        this.props.increaseExpGained( this.props.level === 1 ? 1 : 2)
+        this.props.diamondDig(
+            1 + this.props.items[0].amount * this.props.items[0].diamondsPerClick
+        )   
+        this.props.increaseExpGained( 
+            1 + this.props.items[0].amount * this.props.items[0].diamondsPerClick
+        )
 
         if (this.props.expGained === this.props.diamondsNeededToLvlUp) {
             this.props.levelUp()
@@ -45,7 +49,7 @@ export default class PureBigDiamond extends Component {
 
     }
 
-    render() {      
+    render() {          
         return (
             <MainContainer>      
 
@@ -62,6 +66,7 @@ export default class PureBigDiamond extends Component {
 }
 
 const mapStateToProps = state => ({
+    items: state.items,
     numberOfDiamonds: state.numberOfDiamonds,
     level: state.level.level,
     expGained: state.level.expGained,

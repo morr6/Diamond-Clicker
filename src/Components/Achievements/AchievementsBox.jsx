@@ -4,10 +4,9 @@ import {MainContainer,
         CloseAchievementsButton,
         AchievementTitleWrapper,
         AchievementsWrapper,
-        SingleAchievement,
-        OpenAchievementsButton        
+        OpenAchievementsButton,
 } from './AchievementsBox.s'
-
+import {SingleAchievement} from './SingleAchievement'
 
 import { connect } from 'react-redux'
 
@@ -36,7 +35,8 @@ export default class PureAchievementsBox extends Component {
                     ACHIEVEMENTS
                 </OpenAchievementsButton>
 
-                <AchievementsContainer isOpen={ this.state.isAchievementsOpen }>
+                {  this.state.isAchievementsOpen && 
+                  <AchievementsContainer isOpen={ this.state.isAchievementsOpen }>
 
                     <CloseAchievementsButton onClick={ () => this.closeAchievements() } >
                        CLOSE
@@ -48,13 +48,12 @@ export default class PureAchievementsBox extends Component {
 
                     <AchievementsWrapper>
                         { this.props.achievements.map((achievement, key) => 
-                            <SingleAchievement key={key} achievement={achievement}>
-                                { achievement.id }
-                            </SingleAchievement>
+                            <SingleAchievement key={key} achievement={achievement} />
                         )}
                     </AchievementsWrapper>
 
-                </AchievementsContainer>
+                  </AchievementsContainer>
+                }
 
             </MainContainer>
         )
@@ -65,11 +64,6 @@ const mapStateToProps = state => ({
     achievements: state.achievements
 })
 
-const mapDispatchToProps = dispatch => ({
-
-})
-
 export const AchievementsBox = connect(
     mapStateToProps,
-    mapDispatchToProps
 )(PureAchievementsBox)
