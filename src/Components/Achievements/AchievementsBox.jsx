@@ -30,7 +30,7 @@ export default class PureAchievementsBox extends Component {
         this.setState({ isAchievementsOpen: true })
     }
 
-    renderLastAchievementUnlocked() {
+    renderLastAchievementUnlockedInfo() {
         if (this.props.lastAchievementUnlocked.name) {
             return <LastAchievementBox>
                 <LastAchievementNameWrapper>  
@@ -40,13 +40,18 @@ export default class PureAchievementsBox extends Component {
         }
     }
 
+    hideUnlockInfo() {
+        if (this.props.lastAchievementUnlocked.name) {
+            setTimeout( () => {this.props.hideAchievementUnlocked()}, 6000)
+        }
+    }
+
     render() {
         return(
             <MainContainer> 
                 
-                { this.renderLastAchievementUnlocked() }
-                { this.props.lastAchievementUnlocked.name && 
-                    setTimeout( () => {this.props.hideAchievementUnlocked()}, 5000)  }
+                { this.renderLastAchievementUnlockedInfo() }
+                { this.hideUnlockInfo() }
 
                 <OpenAchievementsButton isAchievementsOpen={ this.state.isAchievementsOpen }
                     onClick={ () => this.openAchievementsButton() }>

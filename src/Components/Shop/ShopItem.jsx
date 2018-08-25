@@ -11,9 +11,9 @@ import * as ClosedShop from '../../assets/images/shop/closedShop.png';
 import * as MiniDiamondImage from '../../assets/images/shop/Diamond.png';
 import { buyItem, pay, shakeCost, increaseDiamondsPerSecond } from '../../clickerApi/actions/shopActions'
 
-const   itemInfoTextStyle = {
+const itemInfoTextStyle = {
     fontSize: 15, 
-    marginTop:'2%'
+    margin: '2% 0 5% 0'
 }
 
 export class ShopItemPure extends Component {
@@ -74,6 +74,29 @@ export class ShopItemPure extends Component {
             ClosedShop
     }
 
+    renderItemInfoContent() {
+        return  <div style={itemInfoTextStyle}>
+            { this.props.item.name === 'hand' ? 
+                <div> 
+                    <div style={{fontSize:'35px'}}> { this.props.item.name } </div>
+                    each give you 
+                    <span style={{fontSize:'35px'}}> { this.props.item.diamondsPerClick } </span> 
+                    diamonds per click 
+                    <div style={itemInfoTextStyle}> Owned: { this.props.item.amount } </div>
+                    <div> { this.props.item.note } </div>
+                </div> :
+                <div> 
+                    <div style={{fontSize:'35px'}}> { this.props.item.name } </div>
+                    each give you 
+                    <span style={{fontSize:'35px'}}> { this.props.item.diamondsPerSecond } </span> 
+                    Diamonds per second
+                    <div style={itemInfoTextStyle}> Owned: { this.props.item.amount }</div>
+                    <div> { this.props.item.note } </div>
+                </div>                                
+            }
+        </div>
+    }
+
     render() {
         return (
             <MainContainer 
@@ -99,17 +122,10 @@ export class ShopItemPure extends Component {
                         clientY={ this.state.mousePosition.y }
                         clientX={ this.state.mousePosition.x }
                     >
-                        { this.props.item.name }
-                        <div style={itemInfoTextStyle}>
-                            { this.props.item.name === 'hand' ? 
-                                <div> each give you <span style={{fontSize:'25px'}}> { this.props.item.diamondsPerClick } </span> diamonds per click </div> :
-                                <div> each give you <span style={{fontSize:'25px'}}> { this.props.item.diamondsPerSecond } </span> Diamonds per second:  </div>                                
-                            }
-                        </div>
-                        <div style={itemInfoTextStyle}>
-                            Owned: { this.props.item.amount }
-                        </div>
+                        { this.renderItemInfoContent() }
+                        
                     </ItemInfo>
+
                 }
             
             </MainContainer>

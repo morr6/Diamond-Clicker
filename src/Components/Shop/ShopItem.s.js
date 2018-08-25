@@ -7,7 +7,7 @@ const costShake = css.keyframes({
     '25%': { left: `-5px` },
     '50%': { left: `5px` },
     '75%': { left: `-5px` },
-    '100%': { left: `q10px` },
+    '100%': { left: `10px` },
 })
 
 

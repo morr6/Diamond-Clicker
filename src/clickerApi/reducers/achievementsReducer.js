@@ -1,5 +1,4 @@
 import { UNLOCK_ACHIEVEMENT } from '../actions/clickerActions'
-
 import { achievementList } from '../achievementList';
 
 export const achievements = (state = achievementList, action) => {

@@ -2,7 +2,13 @@ import glamorous from 'glamorous';
 import BackgroundUrl from '../../assets/images/achievements/achievement.jpg';
 import ButtonBackgroudnd from '../../assets/images/buttons/btn1.png';
 import HoveredButtonBackground from '../../assets/images/buttons/btn2.png';
-import LastAchievementImage from '../../assets/images/achievements/achievementGet.png'
+import LastAchievementImage from '../../assets/images/achievements/achievementGet.png';
+import {css} from 'glamor'
+
+const unlockInfoAnimation = css.keyframes({
+    '0%': { left: `-500px` },
+    '100%': { left: `10px` }
+})
 
 export const MainContainer = glamorous.div(props => {
     return {
@@ -90,12 +96,13 @@ export const AchievementsWrapper = glamorous.div(props => {
 export const LastAchievementBox = glamorous.div(prosp => {
     return {
         position: 'absolute',
-        top: '10%',
-        left: '2%',
+        top: '9.5%',
+        left: '1%',
         height: '12.5%',
         width:'35%',
         background:'url('+ LastAchievementImage +')',
-        backgroundSize: '100% 100%'
+        backgroundSize: '100% 100%',
+        animation: `${unlockInfoAnimation} .5s `
     }
 })
 
