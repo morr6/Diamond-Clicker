@@ -81,7 +81,7 @@ export class ShopItemPure extends Component {
                     <div style={{fontSize:'35px'}}> { this.props.item.name } </div>
                     each give you 
                     <span style={{fontSize:'35px'}}> { this.props.item.diamondsPerClick } </span> 
-                    diamonds per click 
+                    diamond per click 
                     <div style={itemInfoTextStyle}> Owned: { this.props.item.amount } </div>
                     <div> { this.props.item.note } </div>
                 </div> :
