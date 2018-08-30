@@ -28,7 +28,7 @@ const achievementUnlockerMiddleware = store => next => action => {
     store.dispatch({
       type: 'SET_UNLOCKED_ACHIEVEMENT',
       achievement: achievement
-    })   
+    }) 
   )
 }
 

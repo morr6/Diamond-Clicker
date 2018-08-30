@@ -31,14 +31,16 @@ export default class PureAchievementsBox extends Component {
     }
 
     renderLastAchievementUnlockedInfo() {
-        if (this.props.lastAchievementUnlocked.name) {
-            return <LastAchievementBox>
-                <LastAchievementNameWrapper>  
-                    { this.props.lastAchievementUnlocked.name } 
-                </LastAchievementNameWrapper>
-            </LastAchievementBox>
+        const { name } = this.props.lastAchievementUnlocked
+      
+        if (name) {
+          return <LastAchievementBox>
+            <LastAchievementNameWrapper>  
+              { name } 
+            </LastAchievementNameWrapper>
+          </LastAchievementBox>
         }
-    }
+      }
 
     hideUnlockInfo() {
         if (this.props.lastAchievementUnlocked.name) {

@@ -11,9 +11,16 @@ import {diamondDig,
         increaseDiamondNeeded, 
         increaseExpGained, 
         resetExpGained,
-} from '../../clickerApi/actions/clickerActions'
+} from '../../clickerApi/actions/clickerActions';
 
 export default class PureBigDiamond extends Component {   
+    constructor() {
+        super();
+
+        this.state = {
+            numberOfDiamonds: 0
+        }
+    }
 
     componentDidMount() {
         this.interval = setInterval(() => {
@@ -49,7 +56,7 @@ export default class PureBigDiamond extends Component {
 
     }
 
-    render() {          
+    render() {    
         return (
             <MainContainer>      
 
