@@ -7,7 +7,12 @@ export const MainContainer = glamorous.div(props => {
         textAlign: 'center',
         width: '33.3%',
         height:'100vh',
-        float:'left' 
+        float:'left',
+
+        '@media(max-width: 1000px)': {
+            transition: '.5s',
+            height: '80vh'
+        }
     }
 })
 

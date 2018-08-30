@@ -5,7 +5,12 @@ export const BottomBar = glamorous.div(props => {
     return {
         position: 'absolute',
         top: '80%', left:'25%',
-        width: '50%', height: '30px'
+        width: '50%', 
+        height: '30px',
+        
+        '@media(max-width: 500px)': {
+            height: '15px'
+        }
     }
 })
 
@@ -42,7 +47,11 @@ export const InventoryBar = glamorous.div(props => {
     return {
         height: '90px' , width:'100.75%',
         background: 'url('+ InventoryBarImg +')',
-        backgroundSize: '100% 100%'
+        backgroundSize: '100% 100%',
+        
+        '@media(max-width: 500px)': {
+            height: '50px'
+        }
     }
 })
 
