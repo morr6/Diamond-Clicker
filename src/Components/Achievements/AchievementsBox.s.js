@@ -83,6 +83,10 @@ export const AchievementTitleWrapper = glamorous.div(props => {
         textAlign: 'center',
         fontSize: '40',
         margin: '7.5% 0 0 0',
+        
+        '@media(max-width: 1900px)': {
+            fontSize: '20px'
+        }
     }
 })
 
