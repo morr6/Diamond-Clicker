@@ -33,7 +33,13 @@ export const CostWrapper = glamorous.span(props => {
         position: 'relative',
         transition: '.2s',
         color: props.afford ? '#66aa22' : '#dd3322',
-        animation: props.animate && `${costShake} .2s ease-in-out alternate`
+        animation: props.animate && `${costShake} .2s ease-in-out alternate`,
+
+        '@media(max-width: 650px)': {
+            height: '5%',
+            width: '5%',
+            fontSize: '10px'
+        }
     }
 })
 
@@ -54,7 +60,7 @@ export const ItemImage = glamorous.img(props => {
 
 export const MiniDiamond = glamorous.img(props => {
     return {
-        height: '100%', width:'25px',
+        width:'20%',
         float:'right'
     }
 })

@@ -33,13 +33,3 @@ export const ItemsWrapper = glamorous.div(props => {
         marginLeft: '7.5%',
     }
 })
-
-export const SingleItemWrapper = glamorous.div(props => {
-    return {
-        height:'22.5%',
-        width:'23%',
-        fontSize: 25,
-        float:'left'
-    }
-})
- 

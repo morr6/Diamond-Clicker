@@ -39,7 +39,7 @@ export const OpenAchievementsButton = glamorous.button(props => {
             fontSize: 20
         },
         '@media(max-width: 650px)': {
-            fontSize: 15
+            fontSize: 10
         }
     }
 })
