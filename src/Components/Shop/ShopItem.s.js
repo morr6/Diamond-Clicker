@@ -60,7 +60,7 @@ export const ItemImage = glamorous.img(props => {
 
 export const MiniDiamond = glamorous.img(props => {
     return {
-        width:'20%',
+        width:'30%',
         float:'right'
     }
 })
