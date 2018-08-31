@@ -74,6 +74,9 @@ export const CloseAchievementsButton = glamorous.button(props => {
             background: 'url('+ HoveredButtonBackground +')',
             backgroundSize: '100% 100%',
             cursor: 'pointer'
+        },
+        '@media(max-width: 650px)': {
+            fontSize: 20
         }
     }
 })
