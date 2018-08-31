@@ -34,11 +34,21 @@ export const DiamondsNumber = glamorous.div(props => {
 
 export const DiamondImage = glamorous.img(props => {
     return {    
+        transition: '.5s',
+        height: '20%',
+        width: '30%',
         cursor:'pointer',
         marginTop: '10%',
 
         ':hover' : {
             animation: `${rotate} .5s infinite ease-in-out alternate`
+        },
+        
+        '@media(max-width: 1500px)': {
+            width:'70%'
+        } ,
+        '@media(max-width: 750px)': {
+            width:'100%'
         }
     }
 })
