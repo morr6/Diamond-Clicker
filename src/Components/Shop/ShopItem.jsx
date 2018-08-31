@@ -4,7 +4,10 @@ import {
         CostWrapper, 
         ItemImage, 
         MiniDiamond,
-        ItemInfo
+        ItemInfo,
+        ItemNameWrapper,
+        ItemInfoText,
+        ItemAmountOwned
     } from './ShopItem.s.js'
 import { connect } from 'react-redux'
 import * as ClosedShop from '../../assets/images/shop/closedShop.png';
@@ -75,24 +78,34 @@ export class ShopItemPure extends Component {
     }
 
     renderItemInfoContent() {
+        const item = this.props.item
+
         return  <div style={itemInfoTextStyle}>
-            { this.props.item.name === 'hand' ? 
+            { item.name === 'hand' ? 
                 <div> 
-                    <div style={{fontSize:'35px'}}> { this.props.item.name } </div>
+                    <ItemNameWrapper> { item.name } </ItemNameWrapper>
                     each give you 
-                    <span style={{fontSize:'35px'}}> { this.props.item.diamondsPerClick } </span> 
+                    <ItemInfoText> 
+                        { item.diamondsPerClick } 
+                    </ItemInfoText> 
                     diamond per click 
-                    <div style={itemInfoTextStyle}> Owned: { this.props.item.amount } </div>
-                    <div> { this.props.item.note } </div>
+                    <ItemAmountOwned> 
+                        Owned: { item.amount } 
+                    </ItemAmountOwned>
+                    <div> { item.note } </div>
                 </div> :
                 <div> 
-                    <div style={{fontSize:'35px'}}> { this.props.item.name } </div>
-                    each give you 
-                    <span style={{fontSize:'35px'}}> { this.props.item.diamondsPerSecond } </span> 
-                    Diamonds per second
-                    <div style={itemInfoTextStyle}> Owned: { this.props.item.amount }</div>
-                    <div> { this.props.item.note } </div>
-                </div>                                
+                <ItemNameWrapper> { item.name } </ItemNameWrapper>
+                each give you 
+                <ItemInfoText> 
+                    { item.diamondsPerClick } 
+                </ItemInfoText> 
+                diamond per second 
+                <ItemAmountOwned> 
+                    Owned: { item.amount } 
+                </ItemAmountOwned>
+                <div> { item.note } </div>
+            </div>                             
             }
         </div>
     }

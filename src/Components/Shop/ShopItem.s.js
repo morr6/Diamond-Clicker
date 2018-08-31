@@ -86,8 +86,34 @@ export const ItemInfo = glamorous.div(props => {
             fontSize: 10,
             height: '50px',
             width: '116px',
-            top: props.clientY ? props.clientY - 10 : 0,
-            left: props.clientX ? props.clientX - 125 : 0,
+            top: props.clientY ? props.clientY : 0,
+            left: props.clientX ? props.clientX : 0,
+        }
+    }
+})
+
+export const ItemNameWrapper = glamorous.div(props => {
+    return {
+        fontSize: '35px',
+        '@media(max-width: 650px)': {
+            fontSize: '10px'
+        }
+    }
+})
+export const ItemInfoText = glamorous.span(props => {
+    return {
+        fontSize: '35px',
+        '@media(max-width: 650px)': {
+            fontSize: '10px'
+        }
+    }
+})
+export const ItemAmountOwned = glamorous.div(props => {
+    return {
+        fontSize: 15, 
+        margin: '2% 0 5% 0',
+        '@media(max-width: 650px)': {
+            fontSize: '5px'
         }
     }
 })
