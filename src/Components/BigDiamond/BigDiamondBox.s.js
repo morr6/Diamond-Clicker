@@ -27,7 +27,7 @@ export const DiamondsNumber = glamorous.div(props => {
             fontSize: 50
         },
         '@media(max-width: 840px)': {
-            fontSize: 30
+            fontSize: 20
         }
     }
 })

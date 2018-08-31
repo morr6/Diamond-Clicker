@@ -8,8 +8,8 @@ export const BottomBar = glamorous.div(props => {
         width: '50%', 
         height: '30px',
         
-        '@media(max-width: 500px)': {
-            height: '15px'
+        '@media(max-width: 650px)': {
+            width: '150%'
         }
     }
 })
