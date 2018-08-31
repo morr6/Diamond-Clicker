@@ -104,7 +104,7 @@ export const ItemInfoText = glamorous.span(props => {
     return {
         fontSize: '35px',
         '@media(max-width: 650px)': {
-            fontSize: '10px'
+            fontSize: '7px'
         }
     }
 })
@@ -117,5 +117,13 @@ export const ItemAmountOwned = glamorous.div(props => {
         }
     }
 })
+export const ItemNote = glamorous.div(props => {
+    return {
+        '@media(max-width: 650px)': {
+            fontSize: '5px'
+        }
+    }
+})
+ 
 
 

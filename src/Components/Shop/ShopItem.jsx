@@ -7,7 +7,8 @@ import {
         ItemInfo,
         ItemNameWrapper,
         ItemInfoText,
-        ItemAmountOwned
+        ItemAmountOwned,
+        ItemNote
     } from './ShopItem.s.js'
 import { connect } from 'react-redux'
 import * as ClosedShop from '../../assets/images/shop/closedShop.png';
@@ -84,27 +85,27 @@ export class ShopItemPure extends Component {
             { item.name === 'hand' ? 
                 <div> 
                     <ItemNameWrapper> { item.name } </ItemNameWrapper>
-                    each give you 
+                     
                     <ItemInfoText> 
-                        { item.diamondsPerClick } 
+                        each give you { item.diamondsPerClick } diamond per click 
                     </ItemInfoText> 
-                    diamond per click 
+                    
                     <ItemAmountOwned> 
                         Owned: { item.amount } 
                     </ItemAmountOwned>
-                    <div> { item.note } </div>
+                    <ItemNote> { item.note } </ItemNote>
                 </div> :
                 <div> 
                 <ItemNameWrapper> { item.name } </ItemNameWrapper>
-                each give you 
+                
                 <ItemInfoText> 
-                    { item.diamondsPerClick } 
+                    each give you { item.diamondsPerClick } diamond per second 
                 </ItemInfoText> 
-                diamond per second 
+                
                 <ItemAmountOwned> 
                     Owned: { item.amount } 
                 </ItemAmountOwned>
-                <div> { item.note } </div>
+                <ItemNote> { item.note } </ItemNote>
             </div>                             
             }
         </div>
