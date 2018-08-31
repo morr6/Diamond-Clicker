@@ -47,8 +47,19 @@ export const DiamondImage = glamorous.img(props => {
         '@media(max-width: 1500px)': {
             width:'70%'
         } ,
-        '@media(max-width: 750px)': {
+        '@media(max-width: 650px)': {
             width:'100%'
+        }
+    }
+})
+
+export const DiamondsPerSecondWrapper = glamorous.div(props => {
+    return {
+        color: 'white',
+        fontSize: 20,
+
+        '@media(max-width: 650px)': {
+            fontSize: 10
         }
     }
 })

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {DiamondsNumber,
         MainContainer ,
         DiamondImage,
+        DiamondsPerSecondWrapper
 } from './BigDiamondBox.s';
 import * as BigDiamondImage from '../../assets/images/Diamond.png'
 
@@ -63,7 +64,9 @@ export default class PureBigDiamond extends Component {
               <DiamondsNumber> 
                 Diamonds { this.props.numberOfDiamonds } 
               </DiamondsNumber> 
-              <div style={{color:'white'}}> Diamonds per second: { this.props.diamondsPerSecond } </div>
+              <DiamondsPerSecondWrapper> 
+                  Diamonds per second: { this.props.diamondsPerSecond } 
+              </DiamondsPerSecondWrapper>
               <DiamondImage src={ BigDiamondImage } 
                 onClick={ () => this.onBlockClick() } />
 
