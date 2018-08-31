@@ -81,12 +81,6 @@ export const ItemInfo = glamorous.div(props => {
         zIndex: 9999,
         top: props.clientY ? props.clientY - 90: 0,
         left: props.clientX ? props.clientX - 425 : 0,
-
-        '@media(max-width: 650px)': {
-            fontSize: 10,
-            height: '50px',
-            width: '116px'
-        }
     }
 })
 
