@@ -113,7 +113,11 @@ export const LastAchievementBox = glamorous.div(prosp => {
         width:'35%',
         background:'url('+ LastAchievementImage +')',
         backgroundSize: '100% 100%',
-        animation: `${unlockInfoAnimation} .5s `
+        animation: `${unlockInfoAnimation} .5s `,
+
+        '@media(max-width: 650px)': {
+            width: '50%'
+        }
     }
 })
 
@@ -132,6 +136,9 @@ export const LastAchievementNameWrapper = glamorous.div(props => {
         },
         '@media(max-width:1250px)': {
             fontSize: 20
+        },
+        '@media(max-width:650px)': {
+            fontSize: 10
         }
     }
 })
