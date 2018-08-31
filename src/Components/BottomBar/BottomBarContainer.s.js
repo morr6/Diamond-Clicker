@@ -51,7 +51,7 @@ export const InventoryBar = glamorous.div(props => {
         backgroundSize: '100% 100%',
         
         '@media(max-width: 650px)': {
-            height: '20px'
+            height: '40px'
         }
     }
 })
