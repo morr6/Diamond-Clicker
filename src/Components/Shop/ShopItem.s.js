@@ -102,7 +102,7 @@ export const ItemNameWrapper = glamorous.div(props => {
 })
 export const ItemInfoText = glamorous.span(props => {
     return {
-        fontSize: '35px',
+        fontSize: '25px',
         '@media(max-width: 650px)': {
             fontSize: '7px'
         }
